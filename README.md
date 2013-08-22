@@ -8,7 +8,7 @@ Basic usage
 
 Virtual Page 
 
-~~~ js
+~~~ coffee
 GAT.logging = true
 GAT.trackVirtualPage('/test')
 > Tracking: /vpv/test
@@ -16,7 +16,7 @@ GAT.trackVirtualPage('/test')
 
 Events
 ------
-~~~ js
+~~~ coffee
 GAT.trackEvent('category-name', 'event-name')
 > Tracking: category-name - event-name
 
@@ -27,7 +27,7 @@ GAT.trackEventValue('category-name', 'event-name', 'event-value')
 E-commerce Tracking
 -------------------
 
-~~~ js
+~~~ coffee
 # 12345 is the cart ID
 # 67890 is the total
 GAT.startTrans('12345', '67890')
