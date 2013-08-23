@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Google-analytics-coffee-js by joshua-arvin-lat</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/joshua-arvin-lat/google-analytics-coffee-js">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/joshua-arvin-lat/google-analytics-coffee-js/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/joshua-arvin-lat/google-analytics-coffee-js/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Google-analytics-coffee-js</h1>
+          <p>Google Analytics Scripts - JS and CoffeeScript -  E-commerce Tracking - Virtual Page Views - Events.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/joshua-arvin-lat">joshua-arvin-lat</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a name="google-analytics---coffeescript---javascript" class="anchor" href="#google-analytics---coffeescript---javascript"><span class="octicon octicon-link"></span></a>Google Analytics - CoffeeScript - JavaScript</h1>
+
+<p>Google Analytics Script with Logging</p>
+
+<h2>
+<a name="basic-usage" class="anchor" href="#basic-usage"><span class="octicon octicon-link"></span></a>Basic usage</h2>
+
+<p>Virtual Page </p>
+
+<div class="highlight"><pre><span class="nv">GAT.logging = </span><span class="kc">true</span>
+<span class="nx">GAT</span><span class="p">.</span><span class="nx">trackVirtualPage</span><span class="p">(</span><span class="s">'/test'</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="nv">Tracking: </span><span class="o">/</span><span class="nx">vpv</span><span class="o">/</span><span class="nx">test</span>
+</pre></div>
+
+<h2>
+<a name="events" class="anchor" href="#events"><span class="octicon octicon-link"></span></a>Events</h2>
+
+<div class="highlight"><pre><span class="nx">GAT</span><span class="p">.</span><span class="nx">trackEvent</span><span class="p">(</span><span class="s">'category-name'</span><span class="p">,</span> <span class="s">'event-name'</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="nv">Tracking: </span><span class="nx">category</span><span class="o">-</span><span class="nx">name</span> <span class="o">-</span> <span class="nx">event</span><span class="o">-</span><span class="nx">name</span>
+
+<span class="nx">GAT</span><span class="p">.</span><span class="nx">trackEventValue</span><span class="p">(</span><span class="s">'category-name'</span><span class="p">,</span> <span class="s">'event-name'</span><span class="p">,</span> <span class="s">'event-value'</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="nv">Tracking: </span><span class="nx">category</span><span class="o">-</span><span class="nx">name</span> <span class="o">-</span> <span class="nx">event</span><span class="o">-</span><span class="nx">name</span> <span class="o">-</span> <span class="nx">event</span><span class="o">-</span><span class="nx">value</span>
+</pre></div>
+
+<h2>
+<a name="e-commerce-tracking" class="anchor" href="#e-commerce-tracking"><span class="octicon octicon-link"></span></a>E-commerce Tracking</h2>
+
+<div class="highlight"><pre><span class="c1"># 12345 is the cart ID</span>
+<span class="c1"># 67890 is the total</span>
+<span class="nx">GAT</span><span class="p">.</span><span class="nx">startTrans</span><span class="p">(</span><span class="s">'12345'</span><span class="p">,</span> <span class="s">'67890'</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="nv">Tracking: </span><span class="nx">START</span> <span class="nx">TRANS</span> <span class="o">-</span> <span class="mi">12345</span> <span class="o">-</span> <span class="mi">67890</span>
+
+<span class="nv">item = </span>
+  <span class="nv">order_id: </span><span class="s">'123'</span>
+  <span class="nv">product_id: </span><span class="s">'456'</span>
+  <span class="nv">unit_price: </span><span class="s">'78'</span>
+  <span class="nv">category: </span><span class="s">'cname'</span>
+  <span class="nv">quantity: </span><span class="mi">1</span>
+  <span class="nv">product_name: </span><span class="s">'pname'</span>
+
+<span class="nx">GAT</span><span class="p">.</span><span class="nx">addTransItem</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="nv">Tracking: </span><span class="nx">TRANS</span> <span class="o">-</span> <span class="nx">ITEM</span> <span class="o">-</span> <span class="mi">456</span>
+
+<span class="nx">GAT</span><span class="p">.</span><span class="nx">endTrans</span><span class="p">()</span>
+<span class="o">&gt;</span> <span class="nv">Tracking: </span><span class="nx">END</span> <span class="nx">TRANS</span>
+</pre></div>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span> <span class="na">src=</span><span class="s">'js/gat.js'</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+<h2>
+<a name="acknowledgements" class="anchor" href="#acknowledgements"><span class="octicon octicon-link"></span></a>Acknowledgements</h2>
+
+<p>© 2013, Joshua Arvin Lat. Released under the <a href="LICENSE">MIT License</a>.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
