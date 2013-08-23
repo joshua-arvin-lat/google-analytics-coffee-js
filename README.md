@@ -47,3 +47,15 @@ GAT.addTransItem(item)
 GAT.endTrans()
 > Tracking: END TRANS
 ~~~
+
+Installation
+------------
+
+~~~ html
+<script type='text/javascript' src='js/gat.js'></script>
+~~~
+
+Acknowledgements
+----------------
+
+© 2013, Joshua Arvin Lat. Released under the [MIT License](LICENSE).
